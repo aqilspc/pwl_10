@@ -6,19 +6,11 @@
 			<h2>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
 		</div>
 		<p align="center">KARTU HASIL STUDI</p>
+		<p align="center">{{$mhs->nama}}</p>
 </div>
 </div>
-<br>
-<div class="float-left my-2">
-<p>Nama : {{$mhs->nama}}</p>
-<p>Nim : {{$mhs->nim}}</p>
-<p>Jurusan : {{$mhs->jurusan}}</p>
-<p>Kelas : {{$mhs->kelas->nama_kelas}}</p>
-</div>
-<!-- foto mahasiswa -->
-<div class="float-right my-2">
-	<img width="100px" height="100px" src="{{asset('storage/'.$mhs->foto)}}">
-</div>
+
+
 <table class="table table-bordered">
 
 <tr>
@@ -38,5 +30,4 @@
 </tr>
 @endforeach
 </table>
-<p align="center">	<a target="_blank" class="btn btn-danger btn-lg" href="{{url('mahasiswa/cetak_pdf/'.$mhs->id)}}">CETAK KE PDF</a> </p>
 @endsection

@@ -20,5 +20,7 @@ Route::get('/', function () {
 });
 Route::get('/article/cetak_pdf',[ArticleController::class,'cetak_pdf']);
 Route::resource('article',ArticleController::class);
+Route::get('/mahasiswa/cetak_pdf/{id}',[MahasiswaController::class,'cetak_pdf']);
 Route::resource('mahasiswa',MahasiswaController::class);
 Route::get('nilai/{nim}',[MahasiswaController::class,'nilai']);
+Route::post('cari',[CariController::class,'search']);

@@ -5,7 +5,7 @@
 		<div class="pull-leftmt-2">
 			<h2>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
 		</div>
-		<div class="float-rightmy-2">
+		<div class="float-right my-2">
 		<a class="btn btn-success"href="{{route('mahasiswa.create')}}">Input Mahasiswa</a>
 	</div>
 </div>
@@ -34,6 +34,7 @@ cari
 	<th>No</th>
 	<th>Nim</th>
 	<th>Nama</th>
+	<th>Foto</th>
 	<th>Kelas</th>
 	<th>Jurusan</th>
 	<th>No_Handphone</th>
@@ -46,6 +47,7 @@ cari
 	<td>{{$index + $posts->firstItem()}}</td>
 	<td>{{$mahasiswa->nim}}</td>
 	<td>{{$mahasiswa->nama}}</td>
+	<td><img width="100px" height="100px" src="{{asset('storage/'.$mahasiswa->foto)}}"></td>
 	<td>{{$mahasiswa->kelas->nama_kelas}}</td>
 	<td>{{$mahasiswa->jurusan}}</td>
 	<td>{{$mahasiswa->no_handphone}}</td>
@@ -55,14 +57,14 @@ cari
 		
 		<form action="{{route('mahasiswa.destroy',['mahasiswa'=>$mahasiswa->id])}}"method="POST">
 
-		<a class="btn btn-info"href="{{route('mahasiswa.show',['mahasiswa'=>$mahasiswa->id])}}">Show</a>
+		<a class="btn btn-info btn-sm"href="{{route('mahasiswa.show',['mahasiswa'=>$mahasiswa->id])}}">Show</a>
 
-		<a class="btn btn-primary"href="{{route('mahasiswa.edit',['mahasiswa'=>$mahasiswa->id])}}">Edit</a>
+		<a class="btn btn-primary btn-sm"href="{{route('mahasiswa.edit',['mahasiswa'=>$mahasiswa->id])}}">Edit</a>
 
-		<a class="btn btn-warning"href="{{url('nilai/'.$mahasiswa->id)}}">Nilai</a>
+		<a class="btn btn-warning btn-sm"href="{{url('nilai/'.$mahasiswa->id)}}">Nilai</a>
 		@csrf
 		@method('DELETE')
-		<button type="submit"class="btn btn-danger">Delete</button>
+		<button type="submit"class="btn btn-danger btn-sm">Delete</button>
 	</form>
 
 </td>
