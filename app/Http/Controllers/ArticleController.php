@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use Storage;
+use PDF;
 class ArticleController extends Controller
 {
     /**
@@ -16,6 +17,7 @@ class ArticleController extends Controller
     {
         $article = Article::all();
         return view('article.index',compact('article'));
+        //return $article;
     }
 
     /**
@@ -103,8 +105,17 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy($id)
     {
-        //
+         $article = Article::find($id);
+         $article->delete();
+         return redirect()->back();
+    }
+
+    public function cetak_pdf()
+    {
+        $article = Article::all();
+        $pdf = PDF::loadview('article.cetak_pdf',compact('article'));
+        return $pdf->stream();
     }
 }

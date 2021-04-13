@@ -18,6 +18,7 @@ use App\Http\Controllers\ArticleController;
 Route::get('/', function () {
     return redirect('mahasiswa');
 });
+Route::get('/article/cetak_pdf',[ArticleController::class,'cetak_pdf']);
 Route::resource('article',ArticleController::class);
 Route::resource('mahasiswa',MahasiswaController::class);
 Route::get('nilai/{nim}',[MahasiswaController::class,'nilai']);
