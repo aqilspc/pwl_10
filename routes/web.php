@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\CariController;
+use App\Http\Controllers\ArticleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +16,8 @@ use App\Http\Controllers\CariController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('mahasiswa');
 });
+Route::resource('article',ArticleController::class);
 Route::resource('mahasiswa',MahasiswaController::class);
 Route::get('nilai/{nim}',[MahasiswaController::class,'nilai']);
