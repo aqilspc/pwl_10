@@ -14,7 +14,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $article = Article::all();
+        return view('article.index',compact('article'));
     }
 
     /**
@@ -67,10 +68,11 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $id)
+    public function edit($id)
     {
         $article = Article::find($id);
         return view('article.edit',compact('article'));
+        //return $article;
     }
 
     /**

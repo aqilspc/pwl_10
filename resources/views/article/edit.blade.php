@@ -14,7 +14,7 @@
 @endforeach
 </ul></div>
 @endif
-<form method="post"action="{{route('article.update',['article'=>$article->id])}}"id="myForm">
+<form method="post"action="{{route('article.update',['article'=>$article->id])}}" id="myForm" enctype="multipart/form-data">
 @csrf
 @method('PUT')
 <div class="form-group">
@@ -24,7 +24,8 @@
 </div>
 <div class="form-group">
 	<label for="content">Content</label>
-	<input type="text" class="form-control" required="required" name="content" value="{{$article->content}}">
+	<!-- <input type="text" class="form-control" required="required" name="content" value=""> -->
+	<textarea class="form-control" name="content" required>{{$article->content}}</textarea>
 </br>
 </div>
 <div class="form-group">
